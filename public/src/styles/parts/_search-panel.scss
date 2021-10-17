@@ -1,0 +1,43 @@
+$dark: #1A1B1E;
+
+
+// .search__input input[type="text"] {
+//     padding-left: 20px;
+// }
+
+.search-panel {
+
+    // .search__form
+    margin-top: 40px;
+
+    &__form {
+        display: flex;
+        align-items: center;
+    }
+
+    // .search__input
+
+    &__input {
+        height: 50px;
+        border-radius: 10px 0 0 10px;
+        border: none;
+        padding: 0 20px 0 20px;
+        
+    }
+
+    // .search__button
+
+    &__button {
+        border: none;
+        border-radius: 0 10px 10px 0;
+        height: 50px;
+        width: 50px;
+        background-color: rgb(87, 236, 87);
+        cursor: pointer;
+
+        &:active {
+            outline: none;
+        }
+    }
+}
+

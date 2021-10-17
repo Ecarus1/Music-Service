@@ -1,0 +1,150 @@
+$primary: #F44336;
+$secondary: #03A9F4;
+$dark: #1A1B1E;
+
+%layoutUiSettengs {
+    margin: 0;
+    color: white;
+    font-size: 14px;
+}
+
+
+.player {
+
+    margin-top: 50px;
+    height: 250px;
+    background-color: $dark;
+    box-shadow: 0px 2px 10px rgb(0 0 0 / 60%);
+    border-radius: 15px 15px 0 0;
+
+
+    &__image {
+        position: absolute;
+		z-index: 1;
+        height: 250px;
+        width: 250px;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)),
+        url(https://static.mp3xa.cc/album_images/400x400/nervy-samyjj-dorogojj-chast-1.jpg);
+        background-size: cover;
+        border-radius: 15px 0 15px 0;
+    }
+
+
+    &__header {
+        margin-top: 5px;
+		position: relative;
+		z-index: 3;
+		min-height: 40px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0px 15px;
+    }
+
+
+    &__left {
+        display: flex;
+        color: white;
+    }
+
+
+    &__right {
+        display: flex;
+        color: white;
+
+        .search {
+            padding-right: 10px;
+        }
+    }
+
+
+    &__ui {
+        position: relative;
+		z-index: 3;
+		padding-top: 30px;
+    }
+}
+
+.ui {
+
+
+    &__title {
+        display: flex;
+        justify-content: center;
+        
+        &>h3 {
+            margin: 0;
+            color: white;
+            font-size: 30px;
+            font-weight: 100;
+        }
+    }
+
+
+    &__settings {
+        padding: 15px 35px 0px 35px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    &__replay {
+        @extend %layoutUiSettengs;
+    }
+
+
+    &__group {
+        @extend %layoutUiSettengs;
+    }
+
+
+    &__volume {
+        @extend %layoutUiSettengs;
+    }
+
+
+
+
+    // .ui__progress
+
+    &__progress {
+        position: relative;
+        height: 2px;
+        margin: 30px 20px 0px 20px;
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    // .ui__played
+
+    &__played {
+        width: 20%;
+        height: 2px;
+        position: absolute;
+        background: $primary;
+    }
+
+    // .ui__circle
+
+    &__circle {
+        width: 10px;
+        height: 10px;
+        background: $primary;
+        border-radius: 50%;
+        margin-left: 52px;
+        margin-top: -4px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    // .ui__controls
+
+    &__controls {
+        display: flex;
+        justify-content: space-between;
+        padding: 25px 50px 0px 50px;
+
+        &>i {
+            color: white;
+            font-size: 32px;
+        }
+    }
+}

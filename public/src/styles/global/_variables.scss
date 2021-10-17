@@ -1,0 +1,13 @@
+@mixin theme-inverse {
+  .theme-inverse {
+    @content;
+  }
+}
+
+:root {
+  --primary-color: #0044FF;
+}
+
+@include theme-inverse {
+  --primary-color: red;
+}
