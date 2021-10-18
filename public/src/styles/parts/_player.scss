@@ -2,6 +2,7 @@ $primary: #F44336;
 $secondary: #03A9F4;
 $dark: #1A1B1E;
 
+// похоже на копипасту, почему бы не сделать отдельный класс для этого и использовать когда необходимо [1]
 %layoutUiSettengs {
     margin: 0;
     color: white;
@@ -10,11 +11,11 @@ $dark: #1A1B1E;
 
 
 .player {
-
+    // пусто, удали
     margin-top: 50px;
     height: 250px;
     background-color: $dark;
-    box-shadow: 0px 2px 10px rgb(0 0 0 / 60%);
+    box-shadow: 0px 2px 10px rgb(0 0 0 / 60%); // 0 можно писать без px
     border-radius: 15px 15px 0 0;
 
 
@@ -24,7 +25,7 @@ $dark: #1A1B1E;
         height: 250px;
         width: 250px;
         background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)),
-        url(https://static.mp3xa.cc/album_images/400x400/nervy-samyjj-dorogojj-chast-1.jpg);
+        url(https://static.mp3xa.cc/album_images/400x400/nervy-samyjj-dorogojj-chast-1.jpg); // вынеси отдельно
         background-size: cover;
         border-radius: 15px 0 15px 0;
     }
@@ -38,16 +39,16 @@ $dark: #1A1B1E;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 0px 15px;
+		padding: 0px 15px; // 0 можно писать без px
     }
 
-
+    // копипаста раз
     &__left {
         display: flex;
         color: white;
     }
 
-
+    // копипаста два
     &__right {
         display: flex;
         color: white;
@@ -57,7 +58,7 @@ $dark: #1A1B1E;
         }
     }
 
-
+    // не лучшее название
     &__ui {
         position: relative;
 		z-index: 3;
@@ -66,7 +67,7 @@ $dark: #1A1B1E;
 }
 
 .ui {
-
+    // настрой форматирование, к чему эти два отступа?
 
     &__title {
         display: flex;
@@ -88,6 +89,7 @@ $dark: #1A1B1E;
     }
 
 
+    // [1] -> избавился бы от этого, бессмысленно же
     &__replay {
         @extend %layoutUiSettengs;
     }
@@ -142,6 +144,7 @@ $dark: #1A1B1E;
         justify-content: space-between;
         padding: 25px 50px 0px 50px;
 
+        // мог написать отдельный класс для иконки и реюзать во всех местах
         &>i {
             color: white;
             font-size: 32px;

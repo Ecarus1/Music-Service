@@ -1,14 +1,17 @@
-$songPlaying: #f4d836; //#F44336
+// вынеси отдельно и ипортируй сюда
+$songPlaying: #f4d836; //#F44336 бесполезный комментарий
 $songState: #ddd;
 
 .playlist {
 
     padding: 10px 20px 0px 20px;
-    background: #1A1B1E;
+    background: #1A1B1E; // создай отдельную переменную и вынеси
     margin-top: -26px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.6);
+    // зачем этот комментарий? Благодаря бэм методологии и так понятно что тут написано
     // .content__playlist
 
+    // зачем этот комментарий? Благодаря бэм методологии и так понятно что тут написано
     // .content__song
 
     &__song {
@@ -19,6 +22,7 @@ $songState: #ddd;
         border-bottom: 1px solid rgba(255 , 255, 255, 0.2);
     }
 
+    // зачем этот комментарий? Благодаря бэм методологии и так понятно что тут написано
     // .content__info
 
     &__information {
@@ -26,6 +30,7 @@ $songState: #ddd;
         align-items: center;
     }
 
+    // зачем этот комментарий? Благодаря бэм методологии и так понятно что тут написано
     // .content__img
 
     &__img {
@@ -36,14 +41,15 @@ $songState: #ddd;
     }
 
     &__first {
-        background: url(https://static.mp3xa.cc/album_images/400x400/nervy-samyjj-dorogojj-chast-1.jpg);
+        background: url(https://static.mp3xa.cc/album_images/400x400/nervy-samyjj-dorogojj-chast-1.jpg); // вынеси отдельно
         background-size: cover;
     }
 
+    // зачем этот комментарий? Благодаря бэм методологии и так понятно что тут написано
     // .content__titles
 
     &__titles {
-        color: #fff;
+        color: #fff; // создай отдельную переменную и вынеси
 
         &__songname {
             font-size: 17px;
@@ -53,17 +59,19 @@ $songState: #ddd;
         
         &__group {
             font-size: 13px;
-            color: #929292;
+            color: #929292; // создай отдельную переменную и вынеси
             margin: 0;
         }
     }
 
+    // зачем этот комментарий? Благодаря бэм методологии и так понятно что тут написано
     // .content__state
 
     &__state {
         color: $songState;
     }
 
+    // зачем этот комментарий? Благодаря бэм методологии и так понятно что тут написано
     // .content__playing
 
     &__playing {
