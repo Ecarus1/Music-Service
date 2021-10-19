@@ -11,6 +11,7 @@
     align-items: center;
     position: relative;
     box-shadow: 0px 2px 10px rgb(0 0 0 / 60%);
+    // зачем этот комментарий? Благодаря бэм методологии и так понятно что тут написано
     // .card__border
 
     &__border {
@@ -27,9 +28,11 @@
         }
     }
 
+    // зачем этот комментарий? Благодаря бэм методологии и так понятно что тут написано
     // .card__group
 
     &__group {
+        // шрифт можно было бы описать в миксине и импортить сюда
         font-family: 'Montserrat', sans-serif;
         font-weight: 700;
         font-size: 40px;
@@ -47,12 +50,14 @@
     }
 }
 
+// по хорошему урлы как и цвета нужно вынести в отдельный файл и импортить оттуда
 .img {
     background: url(https://static.mp3xa.cc/album_images/400x400/nervy-samyjj-dorogojj-chast-1.jpg) center center no-repeat;
     background-size: 400px;
   
     &:hover
     {
+        // бесполезный стиль, ты же описывал background на 54 строчке
         background: url(https://static.mp3xa.cc/album_images/400x400/nervy-samyjj-dorogojj-chast-1.jpg) center center no-repeat;
         background-size: 500px;
         
@@ -66,5 +71,5 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    
+    // пусто, удали
 }

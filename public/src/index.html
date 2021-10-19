@@ -1,15 +1,20 @@
 <!doctype html>
+<!--у тебя используется несколько языков, а должен быть один-->
+<!--к тому же w3 validator ругается на en из-за использования lorem фичи, можно было бы указать lan="zxx"-->
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <!--тут w3 validator ругается на отклоние возможности масштабирования на телефонах-->
         <meta name="viewport"
             content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!--что за title?-->
         <title>Document</title>
     </head>
     <body>
         <div class="page">
             <div class="container">
+                <!--пустой класс home-->
                 <div class="home">
                     <header class="header">
                         <a href="#" class="header__logo">Logo</a>
@@ -76,6 +81,7 @@
                                 </div>
                             </div>
 
+                            <!--border-bottom: none к последнему элементу смотрелось бы отлично-->
                             <div class="playlist__song">
                                 <div class="playlist__information">
                                     <div class="playlist__img playlist__first"></div>
@@ -95,7 +101,9 @@
                         <div class="player">
                             <div class="player__image"></div>
 
+                            <!--у тебя уже есть header, семантически лучше использовать div-->
                             <header class="player__header">
+                                <!--неудачное название для класса. left и right больше похожи на модификаторы, а не на элементы. Лучше назвать как-нибудь по другому-->
                                 <div class="player__left">
                                     <i class="material-icons">menu</i>
                                 </div>
@@ -131,6 +139,7 @@
                             </div>
                         </div>
 
+                        <!--название класса запутывает, я ожидаю увидеть гриды внутри, а получаю флексы-->
                         <div class="grid">
                             <div class="card img">
                                 <div class="card__border">
@@ -158,8 +167,11 @@
                         </div>
 
                         <div class="search-panel">
+                            <!--пустой action у формы, на что ругается w3 validator-->
+                            <!--к тому же у формы обязательно должна быть submit кнопка, в данном случае уместнее было бы использовать отдельный input-->
                             <form action="" class="search-panel__form">
                                 <input class="search-panel__input" type="text" placeholder="What your say?">
+                                <!--это не инпут а button type="submit", которая будет отправлять форму-->
                                 <input class="search-panel__button material-icons" type="button" value="search">
                                 <!-- <i class="material-icons">search</i> -->
                             </form>
