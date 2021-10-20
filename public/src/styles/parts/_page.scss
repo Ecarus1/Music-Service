@@ -1,20 +1,11 @@
-// этот импорт доджен быть в style.scss
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import "./header";
-@import "./content";
-// как и этот
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-
-$colorBG: #2b1055; //#2b1055 бесполезные комментарий, к тому же цвета было бы ок вынести в отдельный файл и импортить оттуда
-
 .page {
-    background-color: $colorBG;
+    background-color: $page-background;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .container {
-    // пусто, удали
     min-height: 100vh;
-    width: 1000px; // уместнее было бы использовать max-width свойство, сейчас адаптива в верстке нет как такового
+    max-width: 1000px;
     margin: 0 auto;
 }
 

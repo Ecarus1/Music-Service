@@ -1,7 +1,8 @@
 @import "mixins";
+@import "../global/variables";
 
 @include theme-inverse {
-  color: #fff; // создай отдельную переменную и вынеси
+  color: $theme-inverse;
 }
 
 :focus {

@@ -11,3 +11,58 @@
 @include theme-inverse {
   --primary-color: red;
 }
+
+//**************************************************Цвета
+//_card.scss
+$card-hover-border: rgb(255, 255, 255);
+$card-group-text: rgb(255, 255, 255);
+$card-text-shadow1: rgb(0, 0, 0);
+$card-text-shadow2: rgb(0, 0, 0);
+$card-text-shadow3: rgb(0, 0, 0);
+$card-text-shadow4: rgb(0, 0, 0);
+
+//_header.scss
+$header-logo: rgb(255, 255, 255);
+$header-text-link: rgb(255, 255, 255);
+$header-text-link-hover: #2b1055;
+$header-background-hover: rgb(255, 255, 255);
+$header-background-active: rgb(255, 255, 255);
+$header-text-link-active: #2b1055;
+
+//_page.scss
+$page-background: #2b1055;
+
+//_player.scss
+$player-line: #F44336;
+$player-circle: #F44336;
+$player-progress: rgba(255, 255, 255, 0.3);
+$player-background: #1A1B1E;
+$player-setting: #fff;
+$player-controls: #fff;
+
+//_playlist.scss
+$playlist-playing: #f4d836;
+$playlist-state: #ddd;
+$playlist-background: #1A1B1E;
+$playlist-border-bottom: rgba(255 , 255, 255, 0.2);
+$playlist-name-music: #fff;
+$playlist-name-group: #929292;
+
+//_search-panel.scss
+$search-panel-button: rgb(87, 236, 87);
+
+//_info.scss
+$info-item-text: #fff;
+
+//_reset.scss
+$theme-inverse: #fff;
+
+//**************************************************Ссылки
+// _card.scss
+$card-album: "https://static.mp3xa.cc/album_images/400x400/nervy-samyjj-dorogojj-chast-1.jpg";
+
+// _player.scss
+$player-album: "https://static.mp3xa.cc/album_images/400x400/nervy-samyjj-dorogojj-chast-1.jpg";
+
+// _playlist.scss
+$playlist-miniature: "https://static.mp3xa.cc/album_images/400x400/nervy-samyjj-dorogojj-chast-1.jpg";

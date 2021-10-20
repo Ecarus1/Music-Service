@@ -1,9 +1,7 @@
 .info {
     padding: 40px;
-    // зачем этот комментарий? Благодаря бэм методологии и так понятно что тут написано
-    // .info__item
 
     &__item {
-        color: #fff;
+        color: $info-item-text;
     }
 }

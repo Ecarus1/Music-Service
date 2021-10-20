@@ -1,22 +1,20 @@
 .header {
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
     width: 100%;
     padding: 30px 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // .header__logo
+
     &__logo {
-        color: #fff;
+        color: $header-logo;
         font-weight: 700;
         font-size: 2em;
-        text-transform: uppercase;  //Верхний регистр
-        letter-spacing: 2px;    //Расстояние между буквами
+        text-transform: uppercase;
+        letter-spacing: 2px;
         text-decoration: none;
     }
 
-    // .header__list
     &__list {
         list-style-type: none;
         margin: 0;
@@ -24,35 +22,31 @@
         display: flex;
         justify-content: center;
         text-align: center;
+        max-width: 100%;
     }
 
-    // .header__item
     &__item {
         text-decoration: none;
         margin-left: 40px;
-
-
-        // .header__item_active
-        &_active {
-            color: rgb(172, 151, 37);
-        }
     }
 
-    //.header__link
     &__link {
         text-decoration: none;
         padding: 6px 15px;
-        color: #fff;
+        color: $header-text-link;
+        border-radius: 8px;
+        transition: background .5s;
 
         &:hover {
-            background: #fff;
-            color: #2b1055;
+            background: $header-background-hover;
+            transition: background .5s;
+            color: $header-text-link-hover;
             border-radius: 8px;
         }
         
-        &_active{
-            background: #fff;
-            color: #2b1055;
+        &_active {
+            background: $header-background-active;
+            color: $header-text-link-active;
             border-radius: 8px;
         }
     }

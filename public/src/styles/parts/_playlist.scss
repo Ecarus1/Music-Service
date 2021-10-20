@@ -1,55 +1,39 @@
-// вынеси отдельно и ипортируй сюда
-$songPlaying: #f4d836; //#F44336 бесполезный комментарий
-$songState: #ddd;
-
 .playlist {
-
     padding: 10px 20px 0px 20px;
-    background: #1A1B1E; // создай отдельную переменную и вынеси
+    background: $playlist-background;
     margin-top: -26px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.6);
-    // зачем этот комментарий? Благодаря бэм методологии и так понятно что тут написано
-    // .content__playlist
-
-    // зачем этот комментарий? Благодаря бэм методологии и так понятно что тут написано
-    // .content__song
 
     &__song {
         height: 80px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 1px solid rgba(255 , 255, 255, 0.2);
-    }
+        border-bottom: 1px solid $playlist-border-bottom;
 
-    // зачем этот комментарий? Благодаря бэм методологии и так понятно что тут написано
-    // .content__info
+        &:last-child {
+            border: none;
+        }
+    }
 
     &__information {
         display: flex;
         align-items: center;
     }
 
-    // зачем этот комментарий? Благодаря бэм методологии и так понятно что тут написано
-    // .content__img
-
     &__img {
         width: 60px;
         height: 60px;
-        background: red;
         margin-right: 10px;
     }
 
     &__first {
-        background: url(https://static.mp3xa.cc/album_images/400x400/nervy-samyjj-dorogojj-chast-1.jpg); // вынеси отдельно
+        background: url($playlist-miniature);
         background-size: cover;
     }
 
-    // зачем этот комментарий? Благодаря бэм методологии и так понятно что тут написано
-    // .content__titles
-
     &__titles {
-        color: #fff; // создай отдельную переменную и вынеси
+        color: $playlist-name-music;
 
         &__songname {
             font-size: 17px;
@@ -59,22 +43,16 @@ $songState: #ddd;
         
         &__group {
             font-size: 13px;
-            color: #929292; // создай отдельную переменную и вынеси
+            color: $playlist-name-group;
             margin: 0;
         }
     }
 
-    // зачем этот комментарий? Благодаря бэм методологии и так понятно что тут написано
-    // .content__state
-
     &__state {
-        color: $songState;
+        color: $playlist-state;
     }
 
-    // зачем этот комментарий? Благодаря бэм методологии и так понятно что тут написано
-    // .content__playing
-
     &__playing {
-        color: $songPlaying;
+        color: $playlist-playing;
     }
 }
