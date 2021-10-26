@@ -1,0 +1,55 @@
+@import "variables.scss";
+
+.playlist {
+    &__song {
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $playlist-border-bottom;
+
+        &:last-child {
+            border: none;
+        }
+    }
+
+    &__information {
+        display: flex;
+        align-items: center;
+    }
+
+    &__img {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+    }
+
+    &__first {
+        background: url($playlist-miniature);
+        background-size: cover;
+    }
+
+    &__titles {
+        color: $playlist-name-music;
+
+        &__songname {
+            font-size: 17px;
+            font-weight: 400;
+            margin-bottom: 7px;
+        }
+        
+        &__group {
+            font-size: 13px;
+            color: $playlist-name-group;
+            margin: 0;
+        }
+    }
+
+    &__state {
+        color: $playlist-state;
+    }
+
+    &__playing {
+        color: $playlist-playing;
+    }
+}

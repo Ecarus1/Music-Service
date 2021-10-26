@@ -1,0 +1,9 @@
+@import "variables.scss";
+
+.info {
+    padding: 40px;
+
+    &__item {
+        color: $info-item-text;
+    }
+}
