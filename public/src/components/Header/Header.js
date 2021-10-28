@@ -2,6 +2,8 @@ import { Component } from "react";
 
 import "./Header.scss";
 
+// этот стиль с классами для реакта уже устарел, надо будет писать на хуках
+// https://reactjs.org/docs/hooks-intro.html
 class Header extends Component {
     render() {
         return(
