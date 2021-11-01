@@ -5,7 +5,7 @@ import Player from "../Player/Player";
 import Playlist from "../Playlist/Playlist";
 import SearchPanel from "../SearchPanel/SearchPanel";
 
-const original = "image/original.jpg";
+import original from "../../image/original.jpg";
 import "./App.scss";
 
 const dataCard = [
@@ -38,7 +38,7 @@ function App() {
             <Playlist dataPlaylist={dataPlaylist} />
             <Player />
             <SearchPanel />
-        </div>
+        </div>   
     );
 }
 

@@ -1,10 +1,10 @@
 import PlayerHeader from "../PlayerHeader/PlayerHeader";
 import PlayerInterface from "../PlayerInterface/PlayerInterface";
+import original from "../../image/original.jpg";
+
 import "./Player.scss";
 
 function Player() {
-    const original = "image/original.jpg";
-
     return(
         <div className="player">
             {/*это ошибка, это, как и в PlaylistItem, должно быть <img>, потому что отображает картинку как контент,
