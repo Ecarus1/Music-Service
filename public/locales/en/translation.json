@@ -1,0 +1,11 @@
+{
+    "HEADER": {
+        "LOGO": "Twilight",
+        "HOME": "Home",
+        "ABOUT": "About",
+        "MUSIC": "Music",
+        "CONTACTS": "Contacts"
+    },
+
+    "SEARCH_PANEL_PLACEHOLDER": "What your say?"
+}

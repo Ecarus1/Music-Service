@@ -1,0 +1,11 @@
+{
+    "HEADER": {
+        "LOGO": "Twilight",
+        "HOME": "Главная",
+        "ABOUT": "О нас",
+        "MUSIC": "Музыка",
+        "CONTACTS": "Контакты"
+    },
+
+    "SEARCH_PANEL_PLACEHOLDER": "Что ты напишешь?"
+}
