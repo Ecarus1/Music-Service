@@ -7,10 +7,6 @@ import "./Header.scss";
 function Header() {
     const {t, i18n} = useTranslation();
 
-    const changeLanguage = (language) => {
-        i18n.changeLanguage(language);
-    };
-
     return(
         <header className="header">
             <a href="/#" className="header__logo">{t("HEADER.LOGO")}</a>
@@ -22,7 +18,7 @@ function Header() {
                 <li className="header__item"><a href="/#" className="header__link">{t("HEADER.CONTACTS")}</a></li>
 
                 <li className="header__item">
-                    <HeaderLanguage onChangeLanguage={changeLanguage}/>
+                    <HeaderLanguage hookTranslate={i18n}/>
                 </li>
             </ul>
 

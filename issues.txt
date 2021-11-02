@@ -1,9 +1,3 @@
-readme надо поправить
-
-что делает файл fileeslint?
-
-зачем вложенных папок столько в locales? достаточно ru/en.json
-
 пофиксить при npm run lint
 Warning: React version not specified in eslint-plugin-react settings. See https://github.com/yannickcr/eslint-plugin-react#configuration .
 
@@ -13,9 +7,4 @@ Warning: React version not specified in eslint-plugin-react settings. See https:
 гуглится через create react app assets folder
 
 --------------------------
-paralax в данном случае должен быть отдельным репозиторием
-
-репозиторий называется app, должно называться как то ближе к тематике проекта
-
-не должно быть папки public (её имя используется для папки статических файлов), реакт проект должен быть корнем репозитория
 

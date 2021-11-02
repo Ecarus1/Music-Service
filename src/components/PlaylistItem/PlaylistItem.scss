@@ -6,7 +6,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 1px solid $playlist-border-bottom;
+        border-bottom: 1px solid $player-progress;
 
         &:last-child {
             border: none;
@@ -30,7 +30,7 @@
     }
 
     &__titles {
-        color: $playlist-name-music;
+        color: $primary-color;
 
         &__songname {
             font-size: 17px;

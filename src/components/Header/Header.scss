@@ -9,7 +9,7 @@
     align-items: center;
 
     &__logo {
-        color: $header-logo;
+        color: $primary-color;
         font-weight: 700;
         font-size: 2em;
         text-transform: uppercase;
@@ -30,32 +30,32 @@
 
     &__item {
         text-decoration: none;
-        margin-left: 40px;
-        font-weight: 700;
-        &:hover {
-            .translate__menu, .translate__menu:hover {
-                visibility: visible;
-            }
-        }
+        margin-left: 20px;
+        font-weight: 500;
+        // &:hover {
+        //     .translate__menu, .translate__menu:hover {
+        //         visibility: visible;
+        //     }
+        // }
     }
 
     &__link {
         text-decoration: none;
         padding: 6px 15px;
-        color: $header-text-link;
+        color: $primary-color;
         border-radius: 8px;
         transition: background .5s;
 
         &:hover {
-            background: $header-background-hover;
+            background: $primary-color;
             transition: background .5s;
-            color: $header-text-link-hover;
+            color: $body-bg-color;
             border-radius: 8px;
         }
         
         &_active {
-            background: $header-background-active;
-            color: $header-text-link-active;
+            background: $primary-color;
+            color: $body-bg-color;
             border-radius: 8px;
         }
     }
@@ -79,33 +79,33 @@
     }
 }
 
-.translate {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #fff;
-    position: relative;
+// .translate {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     color: #fff;
+//     position: relative;
 
-    &__logo {
-        text-decoration: none;
-        color: #fff;
-    }
+//     &__logo {
+//         text-decoration: none;
+//         color: #fff;
+//     }
 
-    &__menu {
-        visibility: hidden;
-        list-style: none;
-        text-align: center;
-        padding: 0;
-        color: #fff;
-        position: absolute;
-        padding-top: 30px;
-    }
+//     &__menu {
+//         visibility: hidden;
+//         list-style: none;
+//         text-align: center;
+//         padding: 0;
+//         color: #fff;
+//         position: absolute;
+//         padding-top: 30px;
+//     }
 
-    &__item {
-        text-transform: uppercase;
-        background-color: rgba(58, 58, 58, 0.432);
-        margin-top: 5px;
-        padding: 5px 10px;
-        cursor: pointer;
-    }
-}
+//     &__item {
+//         text-transform: uppercase;
+//         background-color: rgba(58, 58, 58, 0.432);
+//         margin-top: 5px;
+//         padding: 5px 10px;
+//         cursor: pointer;
+//     }
+// }

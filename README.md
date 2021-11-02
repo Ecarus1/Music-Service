@@ -22,7 +22,6 @@ npm start
 -   Базовый HTML и HTML5
 -   Базовый CSS
 -   CSS Flexbox
--   Bootstrap
 
 ## Сертификация алгоритмов JavaScript и структур данных
 -   Базовый JavaScript
@@ -31,9 +30,10 @@ npm start
 -   Базовые структуры данных
 -   Сценарии базового алгоритма
 -   Функциональное программирование
+-   ESLint
+-   Мультиязычность i18next
 
 ## Front End Библиотеки
--   Bootstrap
 -   Sass
 -   React
 -   node.js

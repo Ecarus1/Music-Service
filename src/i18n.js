@@ -12,6 +12,11 @@ i18next.use(Backend).use(LanguageDetector).use(initReactI18next).init({
     },
     interpolation: {
         escapeValue: false
+    },
+    whitelist: ["en", "ru"],
+    backend: {
+        // loadPath: `${window.location.pathname}locales/{{lng}}.json`
+        loadPath: "locales/{{lng}}.json"
     }
 });
 
