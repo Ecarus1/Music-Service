@@ -42,8 +42,14 @@ function PlayerInterface(props) {
     // };
 
     useEffect(() => {
-        setDuration(audioElem.current.duration);
-    }, [audioElem?.current?.loadedmetadata, audioElem?.current?.readyState]);
+        audioElem.current.addEventListener("loadedmetadata", ()=> {
+            setDuration(audioElem.current.duration);
+        });
+
+        return () => {
+            audioElem.current.removeEventListener("loadedmetadata");
+        };
+    }, [audioElem]);
 
     // function changeProgressBar() {
     //     audioElem..currentTime = progressBar.value;
@@ -58,7 +64,7 @@ function PlayerInterface(props) {
                 if (temp > props.songs.length - 1) {
                     temp = 0;
                 }
-                
+
                 return temp;
             });
         } else {
@@ -117,7 +123,7 @@ function PlayerInterface(props) {
                 <i className="material-icons icon" onClick={() => SkipSong()}>skip_next</i>
             </div>
         </div>
-    );   
+    );
 }
 
 export default PlayerInterface;
