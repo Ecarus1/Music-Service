@@ -49,19 +49,24 @@ function PlayerInterface(props) {
     };
 
     useEffect(() => {
-        audioElem.current.addEventListener("loadedmetadata", ()=> {
+        console.info("loaded");
+
+        const loaded = ()=> {
             const seconds = Math.floor(audioElem.current.duration);
             rangeElem.current.max = seconds;
             setDuration(seconds);
-        });
+        };
 
+        audioElem.current.addEventListener("loadedmetadata", loaded);
         audioElem.current.addEventListener("ended", SkipSong);
 
         return () => {
-            audioElem.current.removeEventListener("loadedmetadata");
-            audioElem.current.removeEventListener("ended");
+            console.info("destroyed");
+
+            audioElem.current.removeEventListener("loadedmetadata", loaded);
+            audioElem.current.removeEventListener("ended", SkipSong);
         };
-    }, [audioElem]);
+    }, [audioElem, props.songs]);
 
     const SkipSong = (forwards = true) => {
         if (forwards) {
