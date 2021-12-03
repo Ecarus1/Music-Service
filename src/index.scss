@@ -6,6 +6,11 @@
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #221313;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {

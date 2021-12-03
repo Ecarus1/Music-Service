@@ -1,0 +1,77 @@
+{
+    "albums": [
+        {
+            "id": 1,
+            "title": "Нервы",
+            "imgSrc": "/image/original.jpg"    
+        },
+        {
+            "id": 2,
+            "title": "Lida",
+            "imgSrc": "/image/original2.jpg"    
+        },
+        {
+            "id": 3,
+            "title": "Marshmello",
+            "imgSrc": "/image/original3.jpg"    
+        }
+    ],
+    "tracks": [
+        {
+            "id": 1,
+            "albumId": 1,
+            "title": "Самый дорогой",
+            "artist": "Нервы",
+            "imgSrc": "/image/original.jpg",
+            "src": "/music/Nervi-SmiyDorogoiChelovek.mp3"
+        },
+        {
+            "id": 2,
+            "albumId": 1,
+            "title": "Привет, лови",
+            "artist": "Нервы",
+            "imgSrc": "/image/original.jpg",
+            "src": "/music/Nervi-ProvetLovi.mp3"
+        },
+        {
+            "id": 3,
+            "albumId": 1,
+            "title": "Лето, плавки, рок-н-ролл",
+            "artist": "Нервы",
+            "imgSrc": "/image/original.jpg",
+            "src": "/music/Nervi-Letoplavki.mp3"
+        },
+        {
+            "id": 4,
+            "albumId": 2,
+            "title": "Евробит",
+            "artist": "Lida, GSPD",
+            "imgSrc": "/image/original2.jpg",
+            "src": "/music/LIDA-Evrobit.mp3"
+        },
+        {
+            "id": 5,
+            "albumId": 2,
+            "title": "Танцуй, комсомолка",
+            "artist": "Lida",
+            "imgSrc": "/image/original2.jpg",
+            "src": "/music/LIDA-Komsomolka.mp3"
+        },
+        {
+            "id": 6,
+            "albumId": 3,
+            "title": "Alone",
+            "artist": "Marshmello",
+            "imgSrc": "/image/original3.jpg",
+            "src": "/music/Marshmello-Alone.mp3"
+        },
+        {
+            "id": 7,
+            "albumId": 3,
+            "title": "Stars",
+            "artist": "Marshmello",
+            "imgSrc": "/image/original3.jpg",
+            "src": "/music/Marshmello-Stars.mp3"
+        }
+    ]
+}

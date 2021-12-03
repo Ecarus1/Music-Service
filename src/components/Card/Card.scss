@@ -53,6 +53,15 @@
             opacity: 1
         }
     }
+
+    &_active {
+        .img {
+            transform: scale(0.6, 0.6);
+        }  
+        .card__group {
+            opacity: 1
+        }
+    }
 }
 
 .img {

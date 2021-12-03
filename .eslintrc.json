@@ -37,6 +37,7 @@
                 "extensions": [".js", ".jsx"]
             }
         ],
+        "no-debugger": "off",
         "react/prop-types": "off",
         "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
     },

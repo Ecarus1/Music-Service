@@ -1,12 +1,14 @@
 @import "variables.scss";
 
 .header {
+    position: absolute;
     box-sizing: border-box;
     width: 100%;
     padding: 30px 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    // z-index: 1000;
 
     &__logo {
         color: $primary-color;
@@ -65,6 +67,14 @@
         color: #fff;
         display: none;
     }
+}
+
+.container__header {
+    width: 1000px;
+    margin: 0 auto;
+    position: sticky;
+    top: 0;
+    z-index: 300;
 }
 
 @media (max-width: 840px){

@@ -6,13 +6,26 @@ function PlayerInterface(props) {
     const stateDataSong = props.songs;
 
     const [duration, setDuration] = useState(0);
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(props.songs[0].status);
     const [currentTime, setCurrentTime] = useState(0);
+    const [repeatToggle, setRepeatToggle] = useState(false);
 
-    const audioElem = useRef();
-    const rangeElem = useRef();
-    const rangeVolumElem = useRef();
-    const animationElem = useRef();
+    console.log(props.songs[0].status);
+
+    const audioElem = useRef(null);
+    const rangeElem = useRef(null);
+    const rangeVolumElem = useRef(null);
+    const animationElem = useRef(null);
+
+    const clazz = "material-icons interface__setting";
+
+    // useEffect(() => {
+    //     if (repeatToggle) {
+    //         clazz = "material-icons interface__setting interface__setting_active";
+    //     } else {
+    //         clazz = "material-icons interface__setting";
+    //     }
+    // }, [repeatToggle]);
 
     useEffect(() => {
         if (isPlaying) {
@@ -51,7 +64,7 @@ function PlayerInterface(props) {
     useEffect(() => {
         console.info("loaded");
 
-        const loaded = ()=> {
+        const loaded = () => {
             const seconds = Math.floor(audioElem.current.duration);
             rangeElem.current.max = seconds;
             setDuration(seconds);
@@ -63,42 +76,49 @@ function PlayerInterface(props) {
         return () => {
             console.info("destroyed");
 
-            audioElem.current.removeEventListener("loadedmetadata", loaded);
-            audioElem.current.removeEventListener("ended", SkipSong);
+            // TODO memery leak
+            // audioElem.current.removeEventListener("loadedmetadata", loaded);
+            // audioElem.current.removeEventListener("ended", SkipSong);
         };
-    }, [audioElem, props.songs]);
+    }, [audioElem, props.songs, repeatToggle]);
 
     const SkipSong = (forwards = true) => {
-        if (forwards) {
-            props.setCurrentSongIndex(() => {
-                let temp = props.currentSongIndex;
-                temp++;
+        if(repeatToggle == false) {
 
-                if (temp > props.songs.length - 1) {
-                    temp = 0;
-                    stateDataSong[props.songs.length - 1].status = false;
+            if (forwards) {
+                props.setCurrentSongIndex(() => {
+                    let temp = props.currentSongIndex;
+                    temp++;
+
+                    if (temp > props.songs.length - 1) {
+                        temp = 0;
+                        stateDataSong[props.songs.length - 1].status = false;
+                        return temp;
+                    }
+
+                    stateDataSong[temp - 1].status = false;
+
                     return temp;
-                }
+                });
+            } else {
+                props.setCurrentSongIndex(() => {
+                    let temp = props.currentSongIndex;
+                    temp--;
 
-                stateDataSong[temp - 1].status = false;
+                    if (temp < 0) {
+                        temp = props.songs.length - 1;
+                        stateDataSong[0].status = false;
+                        return temp;
+                    }
 
-                return temp;
-            });
+                    stateDataSong[temp + 1].status = false;
+
+                    return temp;
+                });
+            }
         } else {
-            props.setCurrentSongIndex(() => {
-                let temp = props.currentSongIndex;
-                temp--;
-
-                if (temp < 0) {
-                    temp = props.songs.length - 1;
-                    stateDataSong[0].status = false;
-                    return temp;
-                }
-
-                stateDataSong[temp + 1].status = false;
-
-                return temp;
-            });
+            audioElem.current.currentTime = 0;
+            audioElem.current.play();
         }
     };
 
@@ -127,8 +147,10 @@ function PlayerInterface(props) {
             </div>
 
             <div className="interface__settings">
-                <i className="material-icons interface__setting">replay</i>
+                <div className={clazz + (repeatToggle ? clazz + " interface__setting_active" : "")} onClick={() => setRepeatToggle(!repeatToggle)}>replay</div>
                 <p className="interface__setting">{props.songs[props.currentSongIndex].artist}</p>
+
+                {/* className="material-icons interface__setting interface__setting_active" */}
 
                 <div className="interface__conteiner">
                     <input className="interface__volume" type="range" min="0" max="100" defaultValue="100" ref={rangeVolumElem} onChange={changeRangeVolumeSong}/>

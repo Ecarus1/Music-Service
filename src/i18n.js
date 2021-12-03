@@ -16,7 +16,7 @@ i18next.use(Backend).use(LanguageDetector).use(initReactI18next).init({
     whitelist: ["en", "ru"],
     backend: {
         // loadPath: `${window.location.pathname}locales/{{lng}}.json`
-        loadPath: "locales/{{lng}}.json"
+        loadPath: "/locales/{{lng}}.json"
     }
 });
 

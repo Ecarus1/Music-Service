@@ -10,6 +10,7 @@
         // url($player-album);
         background-size: cover;
         border-radius: 15px 0 15px 0;
+        object-fit: cover;
     }
 
     &__header {
