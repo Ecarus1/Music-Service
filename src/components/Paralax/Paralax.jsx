@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { throttle } from "throttle-debounce";
 
 import "./Paralax.scss";
 function Paralax () {
@@ -21,14 +22,14 @@ function Paralax () {
     //     gg.current.style.left = 1000 + "px";
     // }, []);
     useEffect(() => {
-        window.addEventListener("scroll", onScrollPage);
+        window.addEventListener("scroll", throttleFunc);
         
         return () => {
-            window.removeEventListener("scroll", onScrollPage);
+            window.removeEventListener("scroll", throttleFunc);
         };
     });
 
-    const onScrollPage = () => {
+    const throttleFunc = throttle(300, () => {
         let value = window.scrollY;
         starSmolElem.current.style.left = value * 0.25 + "px";
         starBigElem.current.style.left = value * 0.9 + "px";
@@ -38,7 +39,19 @@ function Paralax () {
         cloudElem.current.style.top = value * 0.25 + "px";
         gladeElem.current.style.top = value * 0.35 + "px";
         console.log(glade);
-    };
+    });
+
+    // const onScrollPage = () => {
+    //     let value = window.scrollY;
+    //     starSmolElem.current.style.left = value * 0.25 + "px";
+    //     starBigElem.current.style.left = value * 0.9 + "px";
+    //     starSmolElem.current.style.top = value * 0.35 + "px";
+    //     starBigElem.current.style.top = value * 0.35 + "px";
+    //     moonElem.current.style.top = value * 1.05 + "px";
+    //     cloudElem.current.style.top = value * 0.25 + "px";
+    //     gladeElem.current.style.top = value * 0.35 + "px";
+    //     console.log(glade);
+    // };
     return(
         <>
             <section className="texture">
