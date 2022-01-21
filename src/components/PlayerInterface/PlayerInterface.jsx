@@ -1,5 +1,9 @@
 import React, {useState, useRef, useEffect} from "react";
 
+import PlayerRange from "../PlayerRange/PlayerRange";
+import PlayerDurations from "../PlayerDurations/PlayerDurations";
+import PlayerRangeDurations from "../PlayerRangeDurations/PlayerRangeDurations";
+
 import "./PlayerInterface.scss";
 
 function PlayerInterface(props) {
@@ -13,60 +17,27 @@ function PlayerInterface(props) {
     console.log(props.songs[0].status);
 
     const audioElem = useRef(null);
-    const rangeElem = useRef(null);
-    const rangeVolumElem = useRef(null);
-    const animationElem = useRef(null);
+    // const rangeElem = useRef(null);
 
     const clazz = "material-icons interface__setting";
-
-    // useEffect(() => {
-    //     if (repeatToggle) {
-    //         clazz = "material-icons interface__setting interface__setting_active";
-    //     } else {
-    //         clazz = "material-icons interface__setting";
-    //     }
-    // }, [repeatToggle]);
 
     useEffect(() => {
         if (isPlaying) {
             audioElem.current.play();
-            // audioElem.current.volume = 0.2;
-            animationElem.current = requestAnimationFrame(whilePlaying);
             changeStatePlayList();
             console.log("Играет");
-            // props.setDataMusic(true);
-            // console.log(audioElem.current.duration);
         } else {
             audioElem.current.pause();
-            cancelAnimationFrame(animationElem.current);
             console.log("Остановлен");
             changeStatePlayList();
-            // props.setDataMusic(true);
-            // console.log(audioElem.current.duration);
         }
     }, [isPlaying, props.currentSongIndex]);
-
-    const whilePlaying = () => {
-        rangeElem.current.value = audioElem.current.currentTime;
-        setCurrentTime(rangeElem.current.value);
-        animationElem.current = requestAnimationFrame(whilePlaying);
-    };
-
-    //Функция вычисления времени музыки в минутах и секундах
-    const calculateTimeMusic = (sec) => {
-        const minutes = Math.floor(sec / 60);
-        const concretMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
-        const seconds = Math.floor(sec % 60);
-        const concretSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
-        return `${concretMinutes}:${concretSeconds}`;
-    };
 
     useEffect(() => {
         console.info("loaded");
 
         const loaded = () => {
             const seconds = Math.floor(audioElem.current.duration);
-            rangeElem.current.max = seconds;
             setDuration(seconds);
         };
 
@@ -77,8 +48,8 @@ function PlayerInterface(props) {
             console.info("destroyed");
 
             // TODO memery leak
-            // audioElem.current.removeEventListener("loadedmetadata", loaded);
-            // audioElem.current.removeEventListener("ended", SkipSong);
+            audioElem.current.removeEventListener("loadedmetadata", loaded);
+            audioElem.current.removeEventListener("ended", SkipSong);
         };
     }, [audioElem, props.songs, repeatToggle]);
 
@@ -122,17 +93,6 @@ function PlayerInterface(props) {
         }
     };
 
-    const changeRange = () => {
-        audioElem.current.currentTime = rangeElem.current.value;
-        setCurrentTime(rangeElem.current.value);
-    };
-
-    const changeRangeVolumeSong = () => {
-        let meaningVolume = rangeVolumElem.current.value / 100;
-        // console.log(meaningVolume);
-        audioElem.current.volume = meaningVolume;
-    };
-
     const changeStatePlayList = () => {
         stateDataSong[props.currentSongIndex].status = isPlaying;
         props.setDataMusic([...stateDataSong]);
@@ -150,30 +110,22 @@ function PlayerInterface(props) {
                 <div className={clazz + (repeatToggle ? clazz + " interface__setting_active" : "")} onClick={() => setRepeatToggle(!repeatToggle)}>replay</div>
                 <p className="interface__setting">{props.songs[props.currentSongIndex].artist}</p>
 
-                {/* className="material-icons interface__setting interface__setting_active" */}
-
                 <div className="interface__conteiner">
-                    <input className="interface__volume" type="range" min="0" max="100" defaultValue="100" ref={rangeVolumElem} onChange={changeRangeVolumeSong}/>
+                    <PlayerRange audioElem={audioElem}/>
                     <i className="material-icons interface__setting">volume_up</i>
                 </div>
             </div>
 
             <div className="interface__progress">
-                {/* <div className="interface__played">
-                    <div className="interface__circle"></div>
-                </div> */}
-                {/* <input type="range" id="progressBar" min="0" max={rangeMax} ref={rangeElem}/> */}
-                <div className="interface__durations">
-                    <div>{calculateTimeMusic(currentTime)}</div>
-                    <div>{calculateTimeMusic(duration)}</div>
-                </div>
-                <input type="range" className="interface__progressBar" id="progressBar" defaultValue="0" ref={rangeElem} onChange={changeRange}/>
+                <PlayerDurations currentTime={currentTime} duration={duration}/>
+                {/* <input type="range" className="interface__progressBar" id="progressBar" defaultValue="0" ref={rangeElem} onChange={changeRange}/> */}
+                <PlayerRangeDurations audioElem={audioElem} isPlaying={isPlaying} duration={duration} setCurrentTime={setCurrentTime}/>
             </div>
 
             <div className="interface__controls">
-                <i className="material-icons icon" onClick={() => SkipSong(false)}>skip_previous</i>
-                <i className="material-icons icon" onClick={() => setIsPlaying(!isPlaying)}>{isPlaying ? "pause" : "play_arrow"}</i>
-                <i className="material-icons icon" onClick={() => SkipSong()}>skip_next</i>
+                <i className="material-icons icon" style={{"cursor": "pointer"}} onClick={() => SkipSong(false)}>skip_previous</i>
+                <i className="material-icons icon" style={{"cursor": "pointer"}} onClick={() => setIsPlaying(!isPlaying)}>{isPlaying ? "pause" : "play_arrow"}</i>
+                <i className="material-icons icon" style={{"cursor": "pointer"}} onClick={() => SkipSong()}>skip_next</i>
             </div>
         </div>
     );

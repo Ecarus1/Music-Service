@@ -1,30 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import CardList from "../CardList/CardList";
 import Playlist from "../Playlist/Playlist";
 import Player from "../Player/Player";
 
+import useMusicService from "../../services/MusicService";
+
 function Music () {
     const [dataMusic, setDataMusic] = useState([
         {
-            id: 1,
-            title: "Самый дорогой",
-            artist: "Нервы",
-            imgSrc: "/image/original.jpg",
-            src: "/music/Nervi-SmiyDorogoiChelovek.mp3",
-            status: false
-        },
-        {
-            id: 2,
-            albumId: 3,
-            title: "Alone",
-            artist: "Marshmello",
-            imgSrc: "/image/original3.jpg",
-            src: "/music/Marshmello-Alone.mp3"
+            id: null,
+            albumId: null,
+            title: null,
+            artist: null,
+            imgSrc: null,
+            src: null
         }
     ]);
 
     const [currentSongIndex, setCurrentSongIndex] = useState(0);
+
+    const {getAllTracks} = useMusicService();
+
+
+    useEffect(() => {
+        onRequest();
+    }, []);
+
+    const onRequest = () => {
+        getAllTracks()
+            .then(onLoadedMusicData);
+    };
+
+    const onLoadedMusicData = (newDataMusic) => {
+        setDataMusic(newDataMusic);
+    };
     
     const changePlayListMusic = (songs) => {
         setDataMusic(songs);
@@ -33,7 +43,7 @@ function Music () {
     };
 
     return(
-        <div className="container">
+        <div className="container__music">
             <CardList changePlayListMusic={changePlayListMusic}/>
             <Playlist dataPlaylist={dataMusic} />
             <Player dataMusic={dataMusic} setDataMusic={setDataMusic} currentSongIndex={currentSongIndex} setCurrentSongIndex={setCurrentSongIndex}/>

@@ -29,7 +29,7 @@ function Paralax () {
         };
     });
 
-    const throttleFunc = throttle(300, () => {
+    const throttleFunc = throttle(1000 / 60, () => {
         let value = window.scrollY;
         starSmolElem.current.style.left = value * 0.25 + "px";
         starBigElem.current.style.left = value * 0.9 + "px";

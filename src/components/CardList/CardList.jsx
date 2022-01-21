@@ -13,7 +13,6 @@ function CardList({changePlayListMusic}) {
     const [cardList, setCardList] = useState([]);
 
     const [selectedIdAlbum, setSelectedIdAlbum] = useState(null);
-    // const [newItemLoading, setNewItemLoading] = useState(false);
 
     const {loading, error, getAllAlbums} = useMusicService();
 
@@ -22,14 +21,12 @@ function CardList({changePlayListMusic}) {
     }, []);
 
     const onRequest = () => {
-        // initial ? setNewItemLoading(false) : setNewItemLoading(true);
         getAllAlbums()
             .then(onCardListLoaded);
     };
 
     const changePlayListMusicInternal = (e, id) => {
         changePlayListMusic(e);
-        // setSelectedIdAlbum(id);
     };
 
     const onCardListLoaded = (newCardList) => {
@@ -42,40 +39,6 @@ function CardList({changePlayListMusic}) {
         );
     });
 
-    // const focusOnItem = (id) => {
-    //     itemRefs.current.forEach(item => item.classList.remove("card_active"));
-    //     itemRefs.current[id].classList.add("card_active");
-    //     itemRefs.current[id].focus();
-    //     console.log(itemRefs.current[id]);
-    // };
-
-    // const addToRef = (el) => {
-    //     console.log(el);
-    // };
-
-    // function renderItems(arr) {
-    //     const items =  arr.map((item, i) => {
-
-    //         return(
-    //             <Card 
-    //                 key={item.id}
-    //                 idAlbum={item.id}
-    //                 name={item.title}
-    //                 imgSrc={item.imgSrc}
-    //                 ref={el => itemRefs.current[i] = el}
-    //                 // addToRef={addToRef}
-    //                 // onClick={() => focusOnItem(i)}
-    //                 itemRefs={itemRefs}
-    //                 focusOnItem={focusOnItem}
-    //                 id={i}
-    //                 changePlayListMusic={changePlayListMusic}/>
-    //         );
-    //     });
-
-    //     return(items);
-    // }
-
-    // const items = renderItems(cardList);
     const errorMessage = error ? <ErrorMessage/> : null;
     const preloader = loading ? <Preloader/> : null;
 
