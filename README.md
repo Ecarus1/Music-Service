@@ -1,6 +1,6 @@
 # CodeMasters study!
 
-## Личный проект - "APP"
+## Личный проект - "Music Service"
 
 ## Что за проект?
 
